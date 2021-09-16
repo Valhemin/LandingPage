@@ -1,0 +1,26 @@
+.nav {
+   &__background {
+      height: 6rem;
+      width: 6rem;
+      border-radius: 50%;
+      position: fixed;
+      top: 5rem;
+      right: 7rem;
+      background-image: radial-gradient($color-primary, $color-primary-dark);
+      z-index: 1000;
+      transition: transform 0.8s;
+   }
+   &__icon {
+      width: 7rem;
+      height: 7rem;
+      position: fixed;
+      top: 5rem;
+      right: 7rem;
+      z-index: 2000;
+      cursor: pointer;
+      text-align: center;
+      background-color: $color-white;
+      border-radius: 50rem;
+      box-shadow: 0 0.5rem 3rem rgba($color-black, 0.3);
+   }
+}
