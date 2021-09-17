@@ -1,5 +1,14 @@
 html {
-   font-size: 10px;
+   font-size: 62.5%;
+   @include respond(tablet-land) {
+      font-size: 56.25%;
+   }
+   @include respond(tablet) {
+      font-size: 50%;
+   }
+   @include respond(wide-desktop) {
+      font-size: 75%;
+   }
 }
 * {
    padding: 0;
@@ -14,6 +23,9 @@ body {
    color: $color-grey;
    padding: 30px;
    box-sizing: border-box;
+   @include respond(tablet-land) {
+      padding: 0;
+   }
 }
 .l-o-1 {
    margin-left: 4.66667%;
