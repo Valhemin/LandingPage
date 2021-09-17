@@ -58,6 +58,7 @@
 
 @-webkit-keyframes FadeInRight {
   0% {
+    display: block;
     opacity: 0;
     -webkit-transform: translateX(100px);
             transform: translateX(100px);
@@ -75,6 +76,7 @@
 
 @keyframes FadeInRight {
   0% {
+    display: block;
     opacity: 0;
     -webkit-transform: translateX(100px);
             transform: translateX(100px);
@@ -597,13 +599,42 @@ body {
   display: block;
 }
 
+#nav__checkbox {
+  display: none;
+}
+
+#nav__checkbox:checked ~ .nav__background {
+  -webkit-transform: scale(60);
+          transform: scale(60);
+}
+
+#nav__checkbox:checked ~ .nav__box {
+  display: block;
+}
+
+#nav__checkbox:checked + .nav__btn .nav__btn--icon {
+  background-color: transparent;
+}
+
+#nav__checkbox:checked + .nav__btn .nav__btn--icon::before {
+  top: 0;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+}
+
+#nav__checkbox:checked + .nav__btn .nav__btn--icon::after {
+  top: 0;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
 .nav__background {
   height: 6rem;
   width: 6rem;
   border-radius: 50%;
   position: fixed;
-  top: 5rem;
-  right: 7rem;
+  top: 5.7rem;
+  right: 7.2rem;
   background-image: radial-gradient(#5a73fc, #1c3eff);
   z-index: 1000;
   -webkit-transition: -webkit-transform 0.8s;
@@ -612,7 +643,7 @@ body {
   transition: transform 0.8s, -webkit-transform 0.8s;
 }
 
-.nav__icon {
+.nav__btn {
   width: 7rem;
   height: 7rem;
   position: fixed;
@@ -625,6 +656,88 @@ body {
   border-radius: 50rem;
   -webkit-box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.3);
           box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.3);
+}
+
+.nav__btn:hover .nav__btn--icon::before {
+  top: -1rem;
+}
+
+.nav__btn:hover .nav__btn--icon::after {
+  top: 1rem;
+}
+
+.nav__btn--icon {
+  position: relative;
+  margin-top: 3.2rem;
+}
+
+.nav__btn--icon, .nav__btn--icon::before, .nav__btn--icon::after {
+  width: 3.5rem;
+  height: 0.3rem;
+  background-color: #333;
+  display: inline-block;
+}
+
+.nav__btn--icon::before, .nav__btn--icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.nav__btn--icon::before {
+  top: -0.8rem;
+}
+
+.nav__btn--icon::after {
+  top: 0.8rem;
+}
+
+.nav__box {
+  display: none;
+  position: fixed;
+  top: 50%;
+  right: 34%;
+  z-index: 1500;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: all 0.8s 0.2s;
+  transition: all 0.8s 0.2s;
+}
+
+.nav__box--list {
+  text-align: center;
+}
+
+.nav__box--list > li {
+  margin-bottom: 2rem;
+  list-style: none;
+}
+
+.nav__box--list > li > a {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-size: 3rem;
+  line-height: 3rem;
+  font-weight: 300;
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  -webkit-animation: FadeInRight linear 0.5s;
+          animation: FadeInRight linear 0.5s;
+  background-image: radial-gradient(150% 200% ellipse at 115%, #fff 0%, #fff 50%, transparent 50%);
+  background-size: 252%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.nav__box--list > li > a:hover {
+  background-position: 100%;
+  color: #5a73fc;
+  -webkit-transform: translateX(1rem);
+          transform: translateX(1rem);
 }
 
 .header {
